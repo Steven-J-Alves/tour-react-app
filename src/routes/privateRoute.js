@@ -10,13 +10,29 @@ export default function RouteWrapper({
   isPrivate,
   ...rest
 }) {
-  const signed = false;
+  const signed = true;
+
+  const { path } = rest;
 
   if (!signed && isPrivate) {
     return <Redirect to="/signin" />;
   }
 
-  const Layout = signed ? DefaultLayout : AuthLayout;
+  if (signed && path === '/signin') {
+    return <Redirect to="/" />;
+  }
+
+  if (signed && path === '/signup') {
+    return <Redirect to="/" />;
+  }
+
+  // AuthLayout -> no login; display signin and signup form
+  // DefaultLayout -> login display component
+  let Layout = signed ? DefaultLayout : AuthLayout;
+
+  if (path === '/' || path === '/tour/:id') {
+    Layout = DefaultLayout;
+  }
 
   return (
     <Route

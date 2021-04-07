@@ -15,11 +15,11 @@ export default function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={Overview} />
-      <Route path="/tour/:id" component={Tour} />
-      <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
-      <Route path="/me" component={Account} isPrivate />
+      <Route path="/signin" component={SignIn} />
+      <Route path="/tour/:id" component={Tour} />
       <Route path="/my-tours" component={MyTours} isPrivate />
+      <Route path="/me" component={Account} isPrivate />
       <Route path="/*" component={Page404} />
     </Switch>
   );
