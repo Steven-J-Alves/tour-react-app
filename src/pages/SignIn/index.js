@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Input from '../../components/Input';
@@ -6,10 +6,17 @@ import Input from '../../components/Input';
 import { Container, Content } from './styles';
 
 function SignIn() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <Container>
       <Content>
-        <form>
+        <form onSubmit={handleSubmit}>
           <h1>Log into your account</h1>
           <div>
             <Input
@@ -17,6 +24,8 @@ function SignIn() {
               placeholder="your@example"
               name="email"
               label="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -26,6 +35,8 @@ function SignIn() {
               placeholder="••••••••"
               label="Password"
               name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
