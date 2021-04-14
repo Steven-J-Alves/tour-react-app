@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Input from '../../components/Input';
+
 import { Container, Content } from './styles';
 
 function SignUp() {
@@ -10,32 +12,37 @@ function SignUp() {
         <form>
           <h1>Create your account!</h1>
           <div>
-            <label htmlFor="name">Your name</label>
-            <input type="text" placeholder="your name" name="name" required />
+            <Input
+              type="text"
+              placeholder="your name"
+              label="Name"
+              name="name"
+              required
+            />
           </div>
           <div>
-            <label htmlFor="email">Email address</label>
-            <input
-              type="text"
+            <Input
+              type="email"
               placeholder="your@example.com"
+              label="Email"
               name="email"
               required
             />
           </div>
           <div>
-            <label htmlFor="password">Password</label>
-            <input
+            <Input
               type="password"
               placeholder="••••••••"
+              label="Password"
               name="password"
               required
             />
           </div>
           <div>
-            <label htmlFor="confirm_password">Confirm Password</label>
-            <input
+            <Input
               type="password"
               placeholder="••••••••"
+              label="Confirm Password"
               name="confirm_password"
               required
             />

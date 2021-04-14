@@ -34,27 +34,6 @@ export const Content = styled.div`
       margin-bottom: 3rem !important;
     }
 
-    input {
-      display: block;
-      font-family: inherit;
-      font-size: 1.5rem;
-      color: inherit;
-      padding: 1.25rem 1.75rem;
-      border: none;
-      width: 100%;
-      background-color: #fff;
-      background-color: #f2f2f2;
-      border-top: 3px solid transparent;
-      border-bottom: 3px solid transparent;
-      -webkit-transition: all 0.3s;
-      transition: all 0.3s;
-      border-radius: 4px;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      /* Pseudo element (a visible thing that isn't really in the DOM).
-      Also needs -ms- */
-    }
-
     h1 {
       font-size: 2.25rem;
       text-transform: uppercase;
@@ -75,25 +54,6 @@ export const Content = styled.div`
       margin-bottom: 3.5rem !important;
     }
 
-    input:focus {
-      outline: none;
-      border-bottom: 3px solid #55c57a;
-    }
-
-    input:focus:invalid {
-      border-bottom: 3px solid #ff7730;
-    }
-    input::-webkit-input-placeholder {
-      color: #bbb;
-    }
-
-    label {
-      display: block;
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-
     button {
       font-size: 1.6rem;
       padding: 1.4rem 3rem;
@@ -107,11 +67,11 @@ export const Content = styled.div`
       font-weight: 400;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
-      /*Add later when we use this for the button in form*/
       border: none;
       cursor: pointer;
       background-color: #55c57a;
       color: #fff;
+      width: 100%;
     }
 
     button:hover {

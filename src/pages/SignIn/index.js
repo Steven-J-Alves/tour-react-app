@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Input from '../../components/Input';
+
 import { Container, Content } from './styles';
 
 function SignIn() {
@@ -10,19 +12,19 @@ function SignIn() {
         <form>
           <h1>Log into your account</h1>
           <div>
-            <label htmlFor="email">Email address</label>
-            <input
-              type="text"
+            <Input
+              type="email"
               placeholder="your@example"
               name="email"
+              label="Email"
               required
             />
           </div>
           <div>
-            <label htmlFor="password">Password</label>
-            <input
-              type="text"
+            <Input
+              type="password"
               placeholder="••••••••"
+              label="Password"
               name="password"
               required
             />
