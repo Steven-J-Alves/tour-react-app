@@ -39,8 +39,10 @@ export const InputField = styled.input`
   }
 
   :focus:invalid {
+    outline: none;
     border-bottom: 3px solid #ff7730;
   }
+
   ::-webkit-input-placeholder {
     color: #bbb;
   }
