@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 import { Container, InputField } from './styles';
 
-export default function Input({ label, name, ...rest }) {
+export default function Input({ label, name, error, ...rest }) {
   return (
     <Container>
       <label htmlFor={name}>{label}</label>
-      <InputField name={name} {...rest} />
+      <InputField name={name} error={error} {...rest} />
     </Container>
   );
 }
@@ -15,9 +15,11 @@ export default function Input({ label, name, ...rest }) {
 Input.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
+  error: PropTypes.bool,
 };
 
 Input.defaultProps = {
   label: '',
   name: '',
+  error: false,
 };
