@@ -35,7 +35,8 @@ export const InputField = styled.input`
 
   :focus {
     outline: none;
-    border-bottom: 3px solid #55c57a;
+    border-bottom: ${(props) =>
+      props.error ? '3px solid #ff7730' : '3px solid #55c57a'};
   }
 
   :focus:invalid {

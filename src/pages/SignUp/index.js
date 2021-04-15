@@ -139,7 +139,7 @@ function SignUp() {
               error={confirmPassword.length < 6}
               onChange={(e) => {
                 setconfirmPassword(e.target.value);
-                setconfirmPassword(false);
+                setConfirmPasswordError(false);
               }}
             />
           </div>

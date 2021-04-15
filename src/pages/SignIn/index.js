@@ -66,7 +66,6 @@ function SignIn() {
               }}
             />
           </div>
-          {/* if (hasEmailError) <span>{hasEmailError}</span> */}
           {emailError ? <span>{hasEmailError}</span> : ''}
           <div>
             <Input
