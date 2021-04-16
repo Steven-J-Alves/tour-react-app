@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
 import Input from '../../components/Input';
+
+import { signInRequest } from '../../store/modules/auth/actions';
 
 import * as validation from '../../utils/inputsValidations';
 
@@ -16,6 +18,8 @@ function SignIn() {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState(false);
   const [hasPasswordError, setHasPasswordError] = useState([]);
+
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,6 +42,8 @@ function SignIn() {
       setHasPasswordError(error.errors[0]);
       setPasswordError(true);
     }
+
+    dispatch(signInRequest(email, password));
   };
 
   function handleFocus() {
