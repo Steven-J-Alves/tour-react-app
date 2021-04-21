@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Input from '../../components/Input';
 
 import { signInRequest } from '../../store/modules/auth/actions';
@@ -20,6 +20,7 @@ function SignIn() {
   const [hasPasswordError, setHasPasswordError] = useState([]);
 
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.auth.loading);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -89,7 +90,7 @@ function SignIn() {
           </div>
           {passwordError ? <span>{hasPasswordError}</span> : ''}
           <div>
-            <button type="submit">Login</button>
+            <button type="submit">{loading ? 'Loading...' : 'Login'}</button>
           </div>
           <Link to="/signup">Create a account?</Link>
         </form>
