@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import Input from '../../components/Input';
+
+import { signUpRequest } from '../../store/modules/auth/actions';
 
 import * as validation from '../../utils/inputsValidations';
 
@@ -24,6 +27,8 @@ function SignUp() {
   const [confirmPassword, setconfirmPassword] = useState('');
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
   const [hasConfirmPasswordError, setHasConfirmPasswordError] = useState([]);
+
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,6 +71,8 @@ function SignUp() {
       setHasConfirmPasswordError(error.errors[0]);
       setConfirmPasswordError(true);
     }
+
+    dispatch(signUpRequest(name, email, password, confirmPassword));
   };
 
   function handleFocus() {
