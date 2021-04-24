@@ -3,10 +3,16 @@ import api from '../../services/api';
 
 // import { Container } from './styles';
 
+import DefaultLayout from '../_layouts/default';
+
 function Overview() {
   api.get('users/me');
 
-  return <h1>Overview</h1>;
+  return (
+    <DefaultLayout>
+      <h1>Overview</h1>;
+    </DefaultLayout>
+  );
 }
 
 export default Overview;

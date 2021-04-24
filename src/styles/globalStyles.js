@@ -4,7 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,700');
   * {
     margin: 0;
     padding: 0;
@@ -21,13 +21,14 @@ export default createGlobalStyle`
   }
   html, body, #root {
     height: 100%;
+
   }
   body {
     -webkit-font-smoothing: antialiased;
     color: #777;
   }
   body, input, button {
-    font: 14px 'Roboto', sans-serif;
+    font: 14px 'Lato', sans-serif;
   }
   a {
     text-decoration: none;
