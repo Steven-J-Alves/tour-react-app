@@ -15,7 +15,7 @@ export default createGlobalStyle`
     outline: 0;
   }
   html {
-    font-size: 62.5%;
+    font-size: 55%;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }

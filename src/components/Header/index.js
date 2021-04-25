@@ -18,7 +18,9 @@ function Header() {
           <img src={user} alt="User" />
         </a>
         <span>JONAS</span>
-        <button type="button">LOG OUT</button>
+        <button type="button">
+          <a href="/signin">LOG OUT</a>
+        </button>
       </>
     );
   }
@@ -41,8 +43,12 @@ function Header() {
               isLogin()
             ) : (
               <>
-                <button type="button">Sign In</button>
-                <button type="button">Sign up</button>
+                <button type="button">
+                  <a href="/signin">Sign In</a>
+                </button>
+                <button type="button">
+                  <a href="/signup">Sign up</a>
+                </button>
               </>
             )}
           </nav>
