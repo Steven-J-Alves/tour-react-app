@@ -1,6 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { store } from '../../store';
+
+import { signOut } from '../../store/modules/auth/actions';
 
 // import { Link } from 'react-router-dom';
 
@@ -11,14 +14,18 @@ import { Container, Content } from './styles';
 
 function Header() {
   const profile = useSelector((state) => state.user.profile);
+  const dispatch = useDispatch();
 
   let API_URL_FILES = '';
-
   if (profile) {
     API_URL_FILES = `${process.env.REACT_APP_API_URL_FILES}img/users/${profile.photo}`;
   }
 
   const { signed } = store.getState().auth;
+
+  function HandleSignOut() {
+    dispatch(signOut());
+  }
 
   function isLogin() {
     return (
@@ -28,12 +35,13 @@ function Header() {
           <img src={API_URL_FILES} alt={profile.name} />
         </a>
         <span>{profile.name}</span>
-        <button type="button">
+        <button type="button" onClick={HandleSignOut}>
           <a href="/signin">LOG OUT</a>
         </button>
       </>
     );
   }
+
   return (
     <Container>
       <Content>
