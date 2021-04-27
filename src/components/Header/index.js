@@ -1,23 +1,33 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { store } from '../../store';
+
 // import { Link } from 'react-router-dom';
 
 import logo from '../../assets/logo-white.png';
-import user from '../../assets/user-2.jpg';
 import icon_search from '../../assets/icons.svg';
 
 import { Container, Content } from './styles';
 
 function Header() {
-  const login = false;
+  const profile = useSelector((state) => state.user.profile);
+
+  let API_URL_FILES = '';
+
+  if (profile) {
+    API_URL_FILES = `${process.env.REACT_APP_API_URL_FILES}img/users/${profile.photo}`;
+  }
+
+  const { signed } = store.getState().auth;
 
   function isLogin() {
     return (
       <>
         <a href="/">MY BOOKINGS</a>
         <a href="/">
-          <img src={user} alt="User" />
+          <img src={API_URL_FILES} alt={profile.name} />
         </a>
-        <span>JONAS</span>
+        <span>{profile.name}</span>
         <button type="button">
           <a href="/signin">LOG OUT</a>
         </button>
@@ -39,7 +49,7 @@ function Header() {
           </nav>
           <img src={logo} alt="Natours logo" />
           <nav>
-            {login ? (
+            {signed ? (
               isLogin()
             ) : (
               <>
