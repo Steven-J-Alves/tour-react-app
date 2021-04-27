@@ -22,7 +22,7 @@ export function* signIn({ payload }) {
 
     yield put(signInSucess(token, data.user));
 
-    history.push('/me');
+    history.push('/');
     toast.success('Login success!');
   } catch (err) {
     toast.error('Login fail, email or password incorrect');
